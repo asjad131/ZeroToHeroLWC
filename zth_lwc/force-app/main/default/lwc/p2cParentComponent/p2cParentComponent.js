@@ -19,4 +19,13 @@ export default class P2cParentComponent extends LightningElement {
                 description : "Third card description."
         }
     ]
+   value=10
+    changeValue(e){
+        this.value = e.target.value;
+
+
+    }
+    handleClick(){
+        this.template.querySelector('c-p2c-child-method').resetSlider()
+    }
 }

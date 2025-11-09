@@ -1,10 +1,31 @@
 <template>
+    <!--Parent to Child  primitive example  -->
     <c-p2c-primitive
         title="Parent to Child Commmunication: Primitive data"
         message="This message is from Parent to child." 
         number=34
         is-valid = true>
     </c-p2c-primitive>
+    <!--Parent to Child Non primitive example  -->
     <div class="slds-var-m-bottom_medium"></div>
+    <lightning-card title="Parent to Child Communicaion : Non-Primitive">
     <c-p2c-non-primitive carousel-details ={carouselDetails}></c-p2c-non-primitive>
+    </lightning-card>
+    <!--Action on Parent -->
+    <div class="slds-var-m-bottom_medium"></div>
+    <lightning-card title="Parent to Child Communicaion : Action On Parent">
+        <div class="slds-var-m-bottom_medium">
+            <lightning-input type="number" label="Enter Percentage" value={value}  onkeyup={changeValue}></lightning-input>
+            <c-p2c-parent-action value={value}></c-p2c-parent-action>
+        </div>
+    </lightning-card>
+    <!-- Parent Calling Child Method-->
+     <div class="slds-var-m-bottom_medium"></div>
+    <lightning-card title="Parent to Child Communicaion : Parent Calling Child Method">
+        <lightning-button variant="brand" 
+        label="Reset Slider"  onclick={handleClick} ></lightning-button>
+        <div class="slds-var-m-bottom_medium">
+            <c-p2c-child-method value={value}></c-p2c-child-method>
+        </div>
+    </lightning-card>
 </template>
