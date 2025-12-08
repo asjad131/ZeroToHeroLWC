@@ -10,4 +10,11 @@ public with sharing class AccountController {
         return[SELECT Id, Name, AnnualRevenue, Rating, Type from Account WHERE Type=:type LIMIT 5];
 
     }
+    @AuraEnabled
+    public static List<Account> getAccountsByName(String searchKey){
+
+        return[SELECT Id, Name, AnnualRevenue, Rating, Type from Account
+        WHERE Name LIKE :('%' + searchKey + '%') LIMIT 5];
+
+    }
 }

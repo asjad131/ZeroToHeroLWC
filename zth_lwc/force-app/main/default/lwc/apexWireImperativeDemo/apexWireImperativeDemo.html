@@ -1,0 +1,42 @@
+<template>
+    <lightning-card title="Apex called Imperatively Demo">
+        <div>
+            <lightning-button type="button" label="Search Accounts"
+            onclick={callApex}
+            ></lightning-button>
+        </div>
+        <div class="slds-p-around_medium">
+            <template if:true={accounts}>
+                <template for:each={accounts} for:item="account">
+                    <div class="slds-box slds-box_xx-small" key={account.Id}>
+                        <p><strong>Name : </strong> {account.Name}</p>
+                        <p><strong>AnnualRevenue : </strong> {account.AnnualRevenue}</p>
+                        <p><strong>Rating : </strong> {account.Rating}</p>
+                        <p><strong>Type : </strong> {account.Type}</p>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+    <lightning-card title="Apex called Imperatively with param Demo">
+        <div>
+            <lightning-input 
+            label="Search Accounts" 
+            type="text"
+            onchange={handleSearch}>
+            </lightning-input>
+        </div>
+        <div class="slds-p-around_medium">
+            <template if:true={resAccounts}>
+                <template for:each={resAccounts} for:item="account">
+                    <div class="slds-box slds-box_xx-small" key={account.Id}>
+                        <p><strong>Name : </strong> {account.Name}</p>
+                        <p><strong>AnnualRevenue : </strong> {account.AnnualRevenue}</p>
+                        <p><strong>Rating : </strong> {account.Rating}</p>
+                        <p><strong>Type : </strong> {account.Type}</p>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>
